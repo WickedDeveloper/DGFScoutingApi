@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -85,13 +91,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CommittedPlayersController.cs" />
+    <Compile Include="Controllers\RecruitsController.cs" />
+    <Compile Include="Data\RecruitsDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812040237276_InitialCreate.cs" />
+    <Compile Include="Migrations\201812040237276_InitialCreate.Designer.cs">
+      <DependentUpon>201812040237276_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040329213_AddedAt.cs" />
+    <Compile Include="Migrations\201812040329213_AddedAt.Designer.cs">
+      <DependentUpon>201812040329213_AddedAt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040343579_ValidationAdded.cs" />
+    <Compile Include="Migrations\201812040343579_ValidationAdded.Designer.cs">
+      <DependentUpon>201812040343579_ValidationAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040400498_ScoutingReportAdded.cs" />
+    <Compile Include="Migrations\201812040400498_ScoutingReportAdded.Designer.cs">
+      <DependentUpon>201812040400498_ScoutingReportAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040420383_UpdateScoutingReport.cs" />
+    <Compile Include="Migrations\201812040420383_UpdateScoutingReport.Designer.cs">
+      <DependentUpon>201812040420383_UpdateScoutingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040434031_CommittedPlayerAdded.cs" />
+    <Compile Include="Migrations\201812040434031_CommittedPlayerAdded.Designer.cs">
+      <DependentUpon>201812040434031_CommittedPlayerAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CommittedPlayer.cs" />
+    <Compile Include="Models\Recruit.cs" />
+    <Compile Include="Models\ScoutingReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\dgfscoutingapi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\dgfscoutingapi - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -101,8 +140,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812040237276_InitialCreate.resx">
+      <DependentUpon>201812040237276_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040329213_AddedAt.resx">
+      <DependentUpon>201812040329213_AddedAt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040343579_ValidationAdded.resx">
+      <DependentUpon>201812040343579_ValidationAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040400498_ScoutingReportAdded.resx">
+      <DependentUpon>201812040400498_ScoutingReportAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040420383_UpdateScoutingReport.resx">
+      <DependentUpon>201812040420383_UpdateScoutingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040434031_CommittedPlayerAdded.resx">
+      <DependentUpon>201812040434031_CommittedPlayerAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
